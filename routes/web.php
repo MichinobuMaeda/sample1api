@@ -11,6 +11,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('items', 'ItemController@index');
+$router->get('items/{id}', 'ItemController@show');
+$router->post('items', 'ItemController@store');
+$router->put('items/{id}', 'ItemController@update');
+$router->delete('items/{id}', 'ItemController@destroy');
