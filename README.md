@@ -1,7 +1,7 @@
 Sample 1 API
 =====
 
-[Lumen[](https://lumen.laravel.com/) による HTTP API のサンプル。
+[Lumen](https://lumen.laravel.com/) による HTTP API のサンプル。
 
 * 商品のリストの追加・参照・変更・削除を REST で実装する。
 * データは JOSN で受け渡しする。
@@ -11,7 +11,7 @@ Sample 1 API
 * このサンプルには PHPUnit 等によるテストを含まない。
 
 
-## Git と GitHub の設定
+## Git と GitHub の利用に必要な設定
 
 各OSの手順で Git をインストールする。
 Linux は ``yum`` や ``apt`` で入れる。
@@ -29,22 +29,31 @@ Git のユーザ名とメールアドレスを必ず設定する。
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
-See https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+参照: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+GitHub のアカウントを作成する。
 
 GitHub に登録する SSH キーを作成する。
+Linux や Mac の場合は以下のコマンドを実行する。
+既存のキーを書き潰さないように気をつけること。
 
 ```
 $ ssh-keygen
 ```
 
-デフォルトで ``~/.ssh/github_rsa.pub`` に公開キーが出力されるので、
-https://github.com/settings/keys で登録する。
+デフォルトで ``~/.ssh/github_rsa.pub`` に公開キーが出力される。
+
+Windows の場合は SSH クライアント製品の案内に従うこと。
+
+作成した公開キーを https://github.com/settings/keys から登録する。
+
+以上の手順は GitLab でもほとんど同じ。
 
 
 ## curl
 
 HTTP API のテストの際に [curl](https://curl.haxx.se/) を使用する。
-各 OS のインストールの手順は　Git と同様。
+各 OS のインストールの手順は Git と同様。
 Linux は最初から入っていることが多い。
 
 ```
@@ -52,11 +61,11 @@ curl --version
 curl 7.64.1 (x86_64-apple-darwin19.0) libcurl/7.64.1 (SecureTransport) 
 ```
 
-## PHP と　Composer
+## PHP と Composer
 
 Lumen 6.x の場合 PHP 7.2 以上が必要。
 
-See https://lumen.laravel.com/docs/6.x
+参照: https://lumen.laravel.com/docs/6.x
 
 ```
 $ php --version
@@ -91,13 +100,15 @@ $ php -r "echo 'APP_KEY=base64:' . base64_encode(hash('md5', time()));"
 
 ``.env`` の ``DB_DATABASE=`` の行を絶対パスに置き換える。
 
+データベースを初期化して、テスト用サーバを起動する。
+
 ```
 $ touch storage/database.sqlite
 $ php artisan migrate:refresh
 $ php -S localhost:8000 -t public
 ```
 
-## プロジェクトの作成
+## 参考：プロジェクトの作成
 
 このプロジェクトは以下の手順で作成した。
 
@@ -115,7 +126,7 @@ $ php artisan list
 
 プロジェクトを GitHub に登録する。
 
-https://github.com/new でリポジトリ ``sample1api`` を作成する。
+https://github.com/new でリポジトリ ``sample1api`` を作成して、以下のコマンドを実行する。
 
 ```
 $ git init
@@ -131,7 +142,7 @@ $ git push -u origin master
 
 一般的な設定を追加する。
 
-See https://github.com/github/gitignore/tree/master/Global
+参照: https://github.com/github/gitignore/tree/master/Global
 
 
 ### ``.env.example``
