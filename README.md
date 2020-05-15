@@ -8,7 +8,7 @@ Sample 1 API
 * データベースには SQLite を利用する。
 * データの削除は論理削除 ( Soft delete ) とする。
 * このサンプルには認証・認可の機能を含まない。
-* このサンプルには PHPUnit 等によるテストを含まない。
+* このサンプルには [PHPUnit](https://phpunit.de/) 等によるテストを含まない。
 
 
 ## Git と GitHub の利用に必要な設定
@@ -230,7 +230,7 @@ Controler ``app/Http/Controllers/ItemController.php `` は Laravel と同様で�
 
 ```
 $ php artisan migrate:refresh
-$ php -S localhost:8000 -t public
+$ php -S 0.0.0.0:8000 -t public
 ```
 
 ``curl`` で各メソッドのテストをする。以下の例のレスポンスの値は、読みやすいように整形している。
