@@ -34,9 +34,12 @@ $ git config --global user.email johndoe@example.com
 
 GitHub のアカウントを作成する。
 
-GitHub に登録する SSH キーを作成する。
+GitHub に登録する SSH キーが無ければ作成する。
 Linux や Mac の場合は以下のコマンドを実行する。
 既存のキーを書き潰さないように気をつけること。
+
+GitHub やクラウド基盤 ( AWS とか Google Cloud とか ) などはたいてい複数の SSH キーを登録できるので、
+開発環境が複数ある場合はそれぞれ別のキーでもよい。
 
 ```
 $ ssh-keygen
